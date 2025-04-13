@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Word Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px;
+    }
+
+    #container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 400px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      padding: 10px;
+      font-size: 16px;
+      resize: none;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    #word-count {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="container">
+    <h2>Word Counter</h2>
+    <textarea id="text-input" placeholder="Type or paste your text here..."></textarea>
+    <div id="word-count">Words: 0</div>
+  </div>
+
+  <script>
+    const textarea = document.getElementById('text-input');
+    const wordCountDisplay = document.getElementById('word-count');
+
+    textarea.addEventListener('input', () => {
+      const text = textarea.value.trim();
+      const words = text === "" ? 0 : text.split(/\s+/).length;
+      wordCountDisplay.textContent = `Words: ${words}`;
+    });
+  </script>
+
+</body>
+</html>
